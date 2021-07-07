@@ -668,7 +668,7 @@ async def play(_, message: Message):
                         
             # print(results)
             try:
-                url = f"https://youtube.com{results[0]['url_suffix']}"
+             #   url = f"https://youtube.com{results[0]['url_suffix']}"
                 title = results[0]["title"][:40]
                 thumbnail = results[0]["thumbnails"][0]
                 thumb_name = f"thumb{title}.jpg"
@@ -1043,7 +1043,7 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing [{title}]({url}) Via Deezer",
+        caption=f"Playing [{title}] Via Deezer",
     )
     os.remove("final.png")
 
