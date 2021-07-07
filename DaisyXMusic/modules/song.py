@@ -54,7 +54,7 @@ def song(client, message):
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
-        link = f"https://youtube.com{results[0]['url_suffix']}"
+     #   link = f"https://youtube.com{results[0]['url_suffix']}"
         # print(results)
         title = results[0]["title"][:40]
         thumbnail = results[0]["thumbnails"][0]
@@ -238,10 +238,10 @@ ydl_opts = {
 }
 
 
-def get_file_extension_from_url(url):
-    url_path = urlparse(url).path
-    basename = os.path.basename(url_path)
-    return basename.split(".")[-1]
+#def get_file_extension_from_url(url):
+ #   url_path = urlparse(url).path
+ #   basename = os.path.basename(url_path)
+  #  return basename.split(".")[-1]
 
 
 # Funtion To Download Song
@@ -285,10 +285,10 @@ async def jssong(_, message):
             await message.reply_text(songs.result)
             return
         sname = songs.result[0].song
-        slink = songs.result[0].media_url
+  #      slink = songs.result[0].media_url
         ssingers = songs.result[0].singers
         await m.edit("Downloading")
-        song = await download_song(slink)
+   #     song = await download_song(slink)
         await m.edit("Uploading")
         await message.reply_audio(audio=song, title=sname, performer=ssingers)
         os.remove(song)
@@ -324,7 +324,7 @@ async def deezsong(_, message):
             await message.reply_text(songs.result)
             return
         title = songs.result[0].title
-        url = songs.result[0].url
+    #    url = songs.result[0].url
         artist = songs.result[0].artist
         await m.edit("Downloading")
         song = await download_song(url)
@@ -348,25 +348,25 @@ async def ytmusic(client, message: Message):
         )
         return
 
-    urlissed = get_text(message)
+ #   urlissed = get_text(message)
 
-    pablo = await client.send_message(
-        message.chat.id, f"`Getting {urlissed} From Youtube Servers. Please Wait.`"
-    )
-    if not urlissed:
-        await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
-        return
+ #   pablo = await client.send_message(
+  #      message.chat.id, f"`Getting {urlissed} From Youtube Servers. Please Wait.`"
+   # )
+ #   if not urlissed:
+  #      await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
+   #     return
 
-    search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
-    mi = search.result()
-    mio = mi["search_result"]
-    mo = mio[0]["link"]
-    thum = mio[0]["title"]
-    fridayz = mio[0]["id"]
-    thums = mio[0]["channel"]
-    kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
-    await asyncio.sleep(0.6)
-    url = mo
+ #   search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
+  #  mi = search.result()
+   # mio = mi["search_result"]
+    #mo = mio[0]["link"]
+    #thum = mio[0]["title"]
+    # fridayz = mio[0]["id"]
+  #  thums = mio[0]["channel"]
+   # kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
+  #  await asyncio.sleep(0.6)
+   # url = mo
     sedlyf = wget.download(kekme)
     opts = {
         "format": "best",
