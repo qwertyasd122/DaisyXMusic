@@ -130,6 +130,7 @@ def r_ply(type_):
                 InlineKeyboardButton("Playlist 📖", "cplaylist"),
             ],
             [InlineKeyboardButton("❌ Close", "ccls")],
+            [InlineKeyboardButton("MAHESH", "ccls")], 
         ]
     )
     return mar
@@ -321,6 +322,7 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("Playlist 📖", "cplaylist"),
                 ],
                 [InlineKeyboardButton("❌ Close", "ccls")],
+                [InlineKeyboardButton("MAHESH", "ccls")], 
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -752,7 +754,7 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing [{title}]({url}) Via Deezer in Linked Channel",
+        caption=f"Playing [{title}] Via Deezer in Linked Channel",
     )
     os.remove("final.png")
 
@@ -849,7 +851,7 @@ async def jiosaavn(client: Client, message_: Message):
             ],
             [
                 InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
+                    text="Join Updates Channel"
                 )
             ],
             [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
