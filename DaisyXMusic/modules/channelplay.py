@@ -492,7 +492,7 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
-            url = f"https://youtube.com{results[0]['url_suffix']}"
+      #      url = f"https://youtube.com{results[0]['url_suffix']}"
             # print(results)
             title = results[0]["title"][:40]
             thumbnail = results[0]["thumbnails"][0]
